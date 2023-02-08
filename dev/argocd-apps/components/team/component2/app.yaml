@@ -3,7 +3,7 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: team
+  name: app-component2
   namespace: argocd
 spec:
   destination:
@@ -19,3 +19,12 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+    syncOptions:
+      - CreateNamespace=true

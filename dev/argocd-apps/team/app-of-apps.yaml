@@ -3,7 +3,7 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: team
+  name: app-of-apps
   namespace: argocd
 spec:
   destination:
